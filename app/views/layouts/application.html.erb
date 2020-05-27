@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyappRubyRails</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <header>
+    <ul>
+      <li><%= link_to 'home', root_path %></li>
+      <li><%= link_to 'allposts', posts_path %></li>
+      <li><%= link_to 'new', new_post_path %></li>
+    </ul>
+  </header>
+
+    <%= yield %>
+  </body>
+</html>

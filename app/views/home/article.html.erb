@@ -1,0 +1,59 @@
+  <h1>7 difff actions in <%= @title %></h1>
+  application rb ma logo or nabs for all
+  <p>rails generate resource Post title:string author:string content:text published:boolean</p>
+  
+  rails c
+  Post.all
+  Post.find(1)
+  Post.where(published:true)
+  Post.where(id: [1, 2, 3])
+  where returns array always
+    Post.where(id: [1]).first
+    Post.name
+
+    http://localhost:3000/posts.json
+
+    routes ma  except 
+
+    assets vitra css js haru
+  <p>Scaffold</p>
+  <p>Migration ko</p>
+    rails:db:migrate
+    rails:db:rollback
+= chai display lai
+# 'link name', pathname
+
+
+Controller has 7 default actions scaffold gare natra manually
+
+<div> 
+<p>rails routes</p>
+<p>Path, method, URL< point_to, controller#controllerkoaction which points to view>
+    Prefix Verb   URI Pattern                       Controller#Action
+    posts GET    /posts(.:format)                   posts#index
+            POST   /posts(.:format)                 posts#create
+    new_post GET    /posts/new(.:format)            posts#new
+edit_post GET    /posts/:id/edit(.:format)          posts#edit
+        post GET    /posts/:id(.:format)            posts#show
+            PATCH  /posts/:id(.:format)             posts#update
+            PUT    /posts/:id(.:format)             posts#update
+            DELETE /posts/:id(.:format)             posts#destroy
+        root GET    
+</p>
+</div>
+
+<h2>Task: list of 5 </h2>
+  <ul>
+    <% @tasks.each do |task| %>
+        <li><%= task %></li>
+    <% end %>
+  </ul>
+<hr>
+
+<h2>Books: list of books and their authors </h2>
+<p>String interpolation example</p>
+  <ul>
+    <% @books.each do |book| %>
+        <li><%= "#{book[:name]} #{book[:author]}" %> </li>
+    <% end %>
+  </ul>

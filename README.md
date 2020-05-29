@@ -1,9 +1,9 @@
 # README
 <p align="center">
-<img src="https://github.com/oceankrish76/rails_intro/blob/blogposts/public/posts.png?raw=true" alt="home screen" align="center" height="400" width="300" />
+<img src="https://github.com/oceankrish76/rails_intro/blob/blogposts/public/posts.png?raw=true" alt="home screen" height="400" width="600" />
 </p>
 <p align="center">
-<img src="https://github.com/oceankrish76/rails_intro/blob/blogposts/public/imageupload.png?raw=true" alt="home screen" align="center" height="400" width="300" />
+<img src="https://github.com/oceankrish76/rails_intro/blob/blogposts/public/imageupload.png?raw=true" alt="home screen"  height="400" width="600" />
 </p>
 
 

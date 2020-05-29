@@ -21,7 +21,8 @@
         <td><%= post.author %></td>
         <td><%= post.content %></td>
         <td><%= post.published %></td>
-        <td><%= post.category_type %></td>
+        <td><%= post.category&.name %></td>
+        <%# & displays name for only availabke categories %>
         <%# <td><%= image_tag(@post.image) %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>

@@ -24,12 +24,16 @@ header ul {
      padding: 10px;
  }
  table {
-    background-color: #f5f5f5f6;
+   /*  background-color: #f5f5f5f6; */
+    background-color:#e2e2e2f6;
     padding: 10px;
     margin: 0 auto;
-    width: 40%;
+    width: 80%;
  }
 
- table th td{
-    display: inline-block;
+able th {
+  margin: 0;
+  border: 1px solid #d4d4d4;
+  white-space: nowrap;
+  border-top-width: 0px;
  }

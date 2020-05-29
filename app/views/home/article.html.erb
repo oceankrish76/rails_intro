@@ -57,3 +57,50 @@ edit_post GET    /posts/:id/edit(.:format)          posts#edit
         <li><%= "#{book[:name]} #{book[:author]}" %> </li>
     <% end %>
   </ul>
+
+  <h1> Created git branch, added collaborator and let's push </h1>
+
+  <h1>Necessary commands</h1>
+<ul>
+  <li>rvm use ruby --install --default</li>
+  <li>gem install rails --no-document -N</li>
+  <li>rails new test_app</li>
+  <li>rails active_storage:install</li>
+  <li>rails db:migrate</li>
+  <li>rails g migration AddImagetoPost image:blob</li>
+  <li>rails db:migrate</li>
+  <li>rails c</li>
+  <li>Post.all to check data and User.all to check users</li>
+  <li>TODO: Image navako ma chai statement rakhera some text message display</li>
+  <li>TODO: All Posts ma image display va chaina</li>
+  <li>TODO: Multi-threading = same cpu pause & run code time-to-time and Concurency/Parallism several cpu same time</li>
+  <li>TODO: Concurrency ma data share ali garo huncha desktop app ma, web ma khasai garna pardaina</li>
+  <li>TODO: APi Design and session handling, Oauth</li>
+  <li>TODO: JWT Token and social login</li>
+  <li>TODO: Libraries use garna sikne</li>
+  <li>TODO: Email ma attach garera send garne</li>
+  <li>TODO: Pachi mongoDb ra sql</li>
+  <li>TODO: Scale up archetecture</li>
+  <li>TODO: Rejects</li>
+
+  <li>TODO: Comments on post</li>
+  <li>TODO: Tags yesma has and benolgs to many</li>
+  <li>TODO: checkbox</li>
+ 
+  <li>https://caniuse.com/ && https://medium.com/@clarkjohnson_85334/uploading-photos-into-rails-6-activestorage-from-javascript-react-file-and-camera-653de99b183f</li>
+  <li>sudo gem install rails</li>gexp (NoMethodError)
+  from /Users/Demola/.rvm/gems/ruby-2.7.1@global/gems/railties-6.0.3.1/lib/rails/app_loader.rb:48:in `loop'
+</ul>
+
+<hr>
+<ul>
+ <li>Self Task: Validate other input fields as well</li>
+ <a href="https://guides.rubyonrails.org/index.html" target="_blank"> link 1</a>
+ <a href="https://flatironschool.com/blog/why-you-dont-need-has-and-belongs-to-many" target="_blank"> link 2 </a>
+ <li>Self Task: Nested Resource, parent elem find garera</li>
+ <li>Self Task: Pagination and recent_five</li>
+ <li>Self Task: Sorting</li>
+ <li>Self Task: Association has and belongs to many, has many through</li>
+ <li>Self Task: create scaffold Tags ani pust has and belongs to many post sanga ko association ma</li>
+ <li>refs le associate garne </li>
+</ul>

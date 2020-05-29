@@ -23,6 +23,11 @@
   <strong>Created at:</strong>
   <%= @post.created_at %>
 </p>
-
+<% unless(@post.image.blank?) %>
+  <p>
+    <strong>Image</strong>
+    <%= image_tag(@post.image) %>
+  </p>
+<% end %>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

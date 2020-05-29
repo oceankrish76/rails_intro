@@ -28,12 +28,13 @@ header ul {
     background-color:#e2e2e2f6;
     padding: 10px;
     margin: 0 auto;
-    width: 80%;
+    width: 90%;
  }
 
-able th {
+table th {
   margin: 0;
   border: 1px solid #d4d4d4;
   white-space: nowrap;
   border-top-width: 0px;
+  text-align: left;
  }

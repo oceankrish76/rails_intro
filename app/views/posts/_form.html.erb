@@ -34,7 +34,18 @@
   <div class="control-group">
     <%= form.label "Category", class:"control-label" %>
     <div class="controls">
-      <%= form.select(:category_id, options_for_select(Category.all.collect{|c | [c.name, c.id]})) %>
+      <%= form.select(:category_id, options_for_select(Category.all.collect{|c | [c.name, c.id]}, { include_blank: false, selected: form.object.category_id })) %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= form.label "Tags", class:"control-label" %>
+    <div class="controls">
+      <%#= form.select(:tag_ids, options_for_select(Tag.all.collect{|c | [c.name, c.id]}, { :include_blank => false, multiple: true})) %>
+      <%# <%= options_from_collection_for_select(City.includes(:country), :id, :name_with_country) %>
+      <%= form.collection_select :tag_ids, Tag.all, 
+                        :id, :name, { include_blank: false },
+                         { multiple: true } %>
     </div>
   </div>
 

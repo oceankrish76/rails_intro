@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<div class="center-div">
 <h1>Categories</h1>
 
 <table>
@@ -11,6 +11,7 @@
   </thead>
 
   <tbody>
+  <%# remember we have created @category instance before and use now here %>
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.name %></td>
@@ -25,3 +26,4 @@
 <br>
 
 <%= link_to 'New Category', new_category_path %>
+</div>

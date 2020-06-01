@@ -30,15 +30,15 @@ Controller has 7 default actions scaffold gare natra manually
 <p>rails routes</p>
 <p>Path, method, URL< point_to, controller#controllerkoaction which points to view>
     Prefix Verb   URI Pattern                       Controller#Action
-    posts GET    /posts(.:format)                   posts#index
-            POST   /posts(.:format)                 posts#create
-    new_post GET    /posts/new(.:format)            posts#new
-edit_post GET    /posts/:id/edit(.:format)          posts#edit
-        post GET    /posts/:id(.:format)            posts#show
-            PATCH  /posts/:id(.:format)             posts#update
-            PUT    /posts/:id(.:format)             posts#update
-            DELETE /posts/:id(.:format)             posts#destroy
-        root GET    
+        posts     GET    /posts(.:format)                   posts#index
+                  POST   /posts(.:format)                 posts#create
+        new_post  GET    /posts/new(.:format)            posts#new
+        edit_post GET    /posts/:id/edit(.:format)          posts#edit
+        post      GET         /posts/:id(.:format)            posts#show
+                  PATCH  /posts/:id(.:format)             posts#update
+                  PUT    /posts/:id(.:format)             posts#update
+                  DELETE /posts/:id(.:format)             posts#destroy
+        root      GET    
 </p>
 </div>
 
@@ -67,7 +67,8 @@ edit_post GET    /posts/:id/edit(.:format)          posts#edit
   <li>rails new test_app</li>
   <li>rails active_storage:install</li>
   <li>rails db:migrate</li>
-  <li>rails g migration AddImagetoPost image:blob</li>
+  <li>rails g migration AddImagetoPost image:blob yesto chai encrypted image rakhna thik huncha</li>
+  <li>rails g model PostTag post:references tag:references</li>
   <li>rails db:migrate</li>
   <li>rails c</li>
   <li>Post.all to check data and User.all to check users</li>
@@ -86,6 +87,7 @@ edit_post GET    /posts/:id/edit(.:format)          posts#edit
   <li>TODO: Comments on post</li>
   <li>TODO: Tags yesma has and benolgs to many</li>
   <li>TODO: checkbox</li>
+
  
   <li>https://caniuse.com/ && https://medium.com/@clarkjohnson_85334/uploading-photos-into-rails-6-activestorage-from-javascript-react-file-and-camera-653de99b183f</li>
   <li>sudo gem install rails</li>gexp (NoMethodError)
@@ -94,13 +96,65 @@ edit_post GET    /posts/:id/edit(.:format)          posts#edit
 
 <hr>
 <ul>
- <li>Self Task: Validate other input fields as well</li>
+ <li><b>self task:</b> Validate other input fields as well</li>
  <a href="https://guides.rubyonrails.org/index.html" target="_blank"> link 1</a>
- <a href="https://flatironschool.com/blog/why-you-dont-need-has-and-belongs-to-many" target="_blank"> link 2 </a>
- <li>Self Task: Nested Resource, parent elem find garera</li>
- <li>Self Task: Pagination and recent_five</li>
- <li>Self Task: Sorting</li>
- <li>Self Task: Association has and belongs to many, has many through</li>
- <li>Self Task: create scaffold Tags ani pust has and belongs to many post sanga ko association ma</li>
+ <a href="https://flatironschool.com/blog/why-you-dont-need-has-and-belongs-to-many" target="_blank"> link 2 </a> <br>
+ <li><b>self task:</b> Nested Resource, parent elem find garera</li>
+   =><p>Routes.rb ma resources cha defined jasle all requests Get, Post, Put, Update, Delete, create generate garcha </p>
+ <a href="https://www.youtube.com/watch?v=T0lcUENA8zs" target="_blank">Guided video Nested resources</a>
+ <a href="https://www.youtube.com/watch?v=HVuawlZTLBw" target="_blank">Guided video Nested resources 1</a><br>
+      resources :posts do <br>
+      resources: comments <br>
+     end <br>
+     pachi comments chai yesari inside post aaunu parne hola ani <b>Http POST req to http://localhost:3000/posts/1</b>/comments<br>
+  now posts chai comments ko parent ho, but parent's ko id linu pardaina just comment id le delete garna milcha, but create haru requests ma chai paryo<br>
+<li> resources :posts do <br>
+      resources: comments, :except => [:update, :destroy, :show, :new, :edit] <br>
+      sources: comments, :only => [:create] <br>
+     end <br>
+     esources: comments, :only => [:update, :destroy] <br>
+     needs to nest in views as well <br>
+</li>
+<li> Post has many comments </li>
+<li class="done"><b>self task:</b> Association has and belongs to many, has many through.. 1 model belongs to anoher, this helps in associating using foreign key and pprimary key.. 2 models ko instance me</li>
+ <li class="done"><b>self task:</b> create scaffold Tags ani pust has and belongs to many post sanga ko association ma</li>
+ <hr>
+  <li><b>self task:</b> author ko col delete garera users list garne like category </li>
+  <li><b>self task:</b> Write article on association diagram  and image resize</li>
+  <li><b>self task:</b> Checkbox for tags instead of select</li>
+
+ <li><b>self task:</b> Pagination and recent_five</li>
+ <li><b>self task:</b> Sorting</li>
+ <li><b>self task:</b> Dependent destroy, Tampere tag on select delete all related posts as well</li>
+ 
+  <li><b>self task:</b> Post ma comments</li>
  <li>refs le associate garne </li>
+ <li>master ma pull matrai && branch ma push matrai </li>
+</ul>
+
+<hr>
+
+<h4 id="the-has-many-through-association"><a class="anchorlink" href="#the-has-many-through-association">2.4 The <code>has_many :through</code> Association</a></h4>
+<p>A <code>has_many :through</code> association is often used to set up a many-to-many connection with another model. This association indicates that the declaring model can be matched with zero or more instances of another model by proceeding <em>through</em> a third model. For example, consider a medical practice where patients make appointments to see physicians. The relevant association declarations could look like this:</p>
+<div class="code_container">
+<div>
+      <div class="syntaxhighlighter nogutter  ruby">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="code">
+                <div class="container"><div class="line number1 index0 alt2"><code class="ruby keyword">class</code> <code class="ruby plain">Physician &lt; ApplicationRecord</code></div><div class="line number2 index1 alt1"><code class="ruby spaces">&nbsp;&nbsp;</code><code class="ruby plain">has_many </code><code class="ruby color2">:appointments</code></div><div class="line number3 index2 alt2"><code class="ruby spaces">&nbsp;&nbsp;</code><code class="ruby plain">has_many </code><code class="ruby color2">:patients</code><code class="ruby plain">, through: </code><code class="ruby color2">:appointments</code></div><div class="line number4 index3 alt1"><code class="ruby keyword">end</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="ruby keyword">class</code> <code class="ruby plain">Appointment &lt; ApplicationRecord</code></div><div class="line number7 index6 alt2"><code class="ruby spaces">&nbsp;&nbsp;</code><code class="ruby plain">belongs_to </code><code class="ruby color2">:physician</code></div><div class="line number8 index7 alt1"><code class="ruby spaces">&nbsp;&nbsp;</code><code class="ruby plain">belongs_to </code><code class="ruby color2">:patient</code></div><div class="line number9 index8 alt2"><code class="ruby keyword">end</code></div><div class="line number10 index9 alt1">&nbsp;</div><div class="line number11 index10 alt2"><code class="ruby keyword">class</code> <code class="ruby plain">Patient &lt; ApplicationRecord</code></div><div class="line number12 index11 alt1"><code class="ruby spaces">&nbsp;&nbsp;</code><code class="ruby plain">has_many </code><code class="ruby color2">:appointments</code></div><div class="line number13 index12 alt2"><code class="ruby spaces">&nbsp;&nbsp;</code><code class="ruby plain">has_many </code><code class="ruby color2">:physicians</code><code class="ruby plain">, through: </code><code class="ruby color2">:appointments</code></div><div class="line number14 index13 alt1"><code class="ruby keyword">end</code></div></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <img src="https://guides.rubyonrails.org/images/association_basics/has_many_through.png">
+</div>
+<ul>
+<li>#<code>rails g scaffold Comments title:string author:references</code></li> That's how we create a foreign key <br>
+<code> class Post has_many : Comments</code>
+<p> author:references gare pachi Comments model belongs_to post aafai gardincha no need manually </p>
+<code> validates_presence_of : title</code> Meaning that don't create a post if there is no title
 </ul>

@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+<h1 class="top-title">Users</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Fname</th>
+      <th>First Name</th>
       <th>Lname</th>
       <th>Location</th>
       <th>Created At</th>
@@ -14,7 +14,7 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="text-secondary">
     <% @users.each do |user| %>
       <tr>
         <td><%= user.fname %></td>
@@ -26,9 +26,12 @@
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
+  </tbody class="text-secondary">
 </table>
 
 <br>
-
-<%= link_to 'New User', new_user_path %>
+<div class="row-fluid">
+  <div class="span12 text-center">
+    <%= link_to 'New User', new_user_path, class:"text-justify top-title btn btn-primary mb-2 text-light" %>
+  </div>
+</div>

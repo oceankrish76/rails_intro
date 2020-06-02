@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Tags</h1>
+<div class="create-forms">
+<h1 class="top-title">Tags</h1>
 
 <table>
   <thead>
@@ -10,7 +10,7 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="text-secondary">
     <% @tags.each do |tag| %>
       <tr>
         <td><%= tag.name %></td>
@@ -19,9 +19,14 @@
         <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
+  </tbody class="text-secondary">
 </table>
 
 <br>
 
-<%= link_to 'New Tag', new_tag_path %>
+<div class="row-fluid">
+  <div class="span12 text-center">
+    <%= link_to 'New Tag', new_tag_path, class:"text-justify top-title btn btn-primary mb-2 text-light" %>
+  </div>
+</div>
+</div>

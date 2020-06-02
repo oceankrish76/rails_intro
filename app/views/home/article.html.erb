@@ -1,3 +1,4 @@
+  <div class="container p-3 my-3 text-secondary">
   <h1>7 difff actions in <%= @title %></h1>
   application rb ma logo or nabs for all
   <p>rails generate resource Post title:string author:string content:text published:boolean</p>
@@ -64,6 +65,7 @@ Controller has 7 default actions scaffold gare natra manually
 <ul>
   <li>rvm use ruby --install --default</li>
   <li>gem install rails --no-document -N</li>
+  <li>yarn add bootstrap jquery popper.js, tp config webpag / enviroment make changes</li>
   <li>rails new test_app</li>
   <li>rails active_storage:install</li>
   <li>rails db:migrate</li>
@@ -93,8 +95,10 @@ Controller has 7 default actions scaffold gare natra manually
   <li>sudo gem install rails</li>gexp (NoMethodError)
   from /Users/Demola/.rvm/gems/ruby-2.7.1@global/gems/railties-6.0.3.1/lib/rails/app_loader.rb:48:in `loop'
 </ul>
-
+</div>
 <hr>
+
+<div class="container p-3 my-3 bg-light text-secondary">
 <ul>
  <li><b>self task:</b> Validate other input fields as well</li>
  <a href="https://guides.rubyonrails.org/index.html" target="_blank"> link 1</a>
@@ -140,13 +144,13 @@ Controller has 7 default actions scaffold gare natra manually
 <div>
       <div class="syntaxhighlighter nogutter  ruby">
         <table border="0" cellpadding="0" cellspacing="0">
-          <tbody>
+          <tbody class="text-secondary">
             <tr>
               <td class="code">
                 <div class="container"><div class="line number1 index0 alt2"><code class="ruby keyword">class</code> <code class="ruby plain">Physician &lt; ApplicationRecord</code></div><div class="line number2 index1 alt1"><code class="ruby spaces">&nbsp;&nbsp;</code><code class="ruby plain">has_many </code><code class="ruby color2">:appointments</code></div><div class="line number3 index2 alt2"><code class="ruby spaces">&nbsp;&nbsp;</code><code class="ruby plain">has_many </code><code class="ruby color2">:patients</code><code class="ruby plain">, through: </code><code class="ruby color2">:appointments</code></div><div class="line number4 index3 alt1"><code class="ruby keyword">end</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="ruby keyword">class</code> <code class="ruby plain">Appointment &lt; ApplicationRecord</code></div><div class="line number7 index6 alt2"><code class="ruby spaces">&nbsp;&nbsp;</code><code class="ruby plain">belongs_to </code><code class="ruby color2">:physician</code></div><div class="line number8 index7 alt1"><code class="ruby spaces">&nbsp;&nbsp;</code><code class="ruby plain">belongs_to </code><code class="ruby color2">:patient</code></div><div class="line number9 index8 alt2"><code class="ruby keyword">end</code></div><div class="line number10 index9 alt1">&nbsp;</div><div class="line number11 index10 alt2"><code class="ruby keyword">class</code> <code class="ruby plain">Patient &lt; ApplicationRecord</code></div><div class="line number12 index11 alt1"><code class="ruby spaces">&nbsp;&nbsp;</code><code class="ruby plain">has_many </code><code class="ruby color2">:appointments</code></div><div class="line number13 index12 alt2"><code class="ruby spaces">&nbsp;&nbsp;</code><code class="ruby plain">has_many </code><code class="ruby color2">:physicians</code><code class="ruby plain">, through: </code><code class="ruby color2">:appointments</code></div><div class="line number14 index13 alt1"><code class="ruby keyword">end</code></div></div>
               </td>
             </tr>
-          </tbody>
+          </tbody class="text-secondary">
         </table>
       </div>
     </div>
@@ -158,3 +162,12 @@ Controller has 7 default actions scaffold gare natra manually
 <p> author:references gare pachi Comments model belongs_to post aafai gardincha no need manually </p>
 <code> validates_presence_of : title</code> Meaning that don't create a post if there is no title
 </ul>
+<hr>
+
+<ul>
+<h3>To ask: </h3>
+<li>Like show method show.html.erb ma linked cha hai vanne logic kata cha re? eg. @show instance show.html.erb ma use huncha not for eg. @post</li>
+<li>@post.category.name garna milcha like no need to match table ny(sql) join table things </li>
+<li>user_id foreign key banaunu parne hola ni pasa ani store garnu paryo</li>
+</ul>
+</div>

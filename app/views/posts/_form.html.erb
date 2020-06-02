@@ -11,30 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :title %>
-    <%= form.text_field :title, :required => true %>
+    <%= form.text_field :title, :required => true, class: "form-control"%>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :author %>
-    <%= form.text_field :author, :required => true %>
+    <%= form.text_field :author, :required => true, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :content %>
-    <%= form.text_area :content, :required => true %>
+    <%= form.text_area :content, :required => true, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :published %>
-    <%= form.check_box :published %>
+    <%= form.check_box :published, class: "checkbox"%>
   </div>
 
   <div class="control-group">
     <%= form.label "Category", class:"control-label" %>
     <div class="controls">
       <%= form.select(:category_id, options_for_select(Category.all.collect{|c | [c.name, c.id]}, { include_blank: false, selected: form.object.category_id })) %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= form.label "Author", class:"control-label" %>
+    <div class="controls">
+      <%= form.select(:id, options_for_select(User.all.collect{|c | [c.fname, c.lname, c.id]}, { include_blank: false, selected: form.object.id })) %>
     </div>
   </div>
 
@@ -54,7 +61,7 @@
     <%= form.file_field :image %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions form-group">
+    <%= form.submit class:"btn btn-primary" %>
   </div>
 <% end %>

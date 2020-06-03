@@ -17,11 +17,6 @@
   </div>
 
   <div class="field form-group">
-    <%= form.label :author %>
-    <%= form.text_field :author, :required => true, class: "form-control" %>
-  </div>
-
-  <div class="field form-group">
     <%= form.label :content %>
     <%= form.text_area :content, :required => true, class: "form-control" %>
   </div>
@@ -38,15 +33,15 @@
     </div>
   </div>
 
-  <div class="control-group">
-    <%= form.label "Author", class:"control-label" %>
+<div class="control-group">
+    <%= form.label "Author from users", class:"control-label" %>
     <div class="controls">
-      <%= form.select(:id, options_for_select(User.all.collect{|c | [c.fname, c.lname, c.id]}, { include_blank: false, selected: form.object.id })) %>
+      <%= form.select(:user_id, options_for_select(User.all.collect{|c | [c.fname, c.lname, c.id]}, { include_blank: false, selected: form.object.user_id })) %>
     </div>
-  </div>
+  </div> 
 
   <div class="control-group">
-    <%= form.label "Tags", class:"control-label" %>
+    <%= form.label "Tags hit cmd to select multiple", class:"control-label" %>
     <div class="controls">
       <%#= form.select(:tag_ids, options_for_select(Tag.all.collect{|c | [c.name, c.id]}, { :include_blank => false, multiple: true})) %>
       <%# <%= options_from_collection_for_select(City.includes(:country), :id, :name_with_country) %>

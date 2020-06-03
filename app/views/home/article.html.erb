@@ -63,6 +63,9 @@ Controller has 7 default actions scaffold gare natra manually
 
   <h1>Necessary commands</h1>
 <ul>
+
+  <li>rails g migration RemoveAuthorFromPosts name:string</li>
+  <li>rails g migration add_user_id_to_posts user_id:integer</li>
   <li>rvm use ruby --install --default</li>
   <li>gem install rails --no-document -N</li>
   <li>yarn add bootstrap jquery popper.js, tp config webpag / enviroment make changes</li>
@@ -123,7 +126,7 @@ Controller has 7 default actions scaffold gare natra manually
 <li class="done"><b>self task:</b> Association has and belongs to many, has many through.. 1 model belongs to anoher, this helps in associating using foreign key and pprimary key.. 2 models ko instance me</li>
  <li class="done"><b>self task:</b> create scaffold Tags ani pust has and belongs to many post sanga ko association ma</li>
  <hr>
-  <li><b>self task:</b> author ko col delete garera users list garne like category </li>
+  <li class="done"><b>self task:</b> author ko col delete garera users list garne like category </li>
   <li><b>self task:</b> Write article on association diagram  and image resize</li>
   <li><b>self task:</b> Checkbox for tags instead of select</li>
 
@@ -166,6 +169,7 @@ Controller has 7 default actions scaffold gare natra manually
 
 <ul>
 <h3>To ask: </h3>
+<li><i>Post.all garda user_id: nil cha, but ui ma aako cha </i></li>
 <li>Like show method show.html.erb ma linked cha hai vanne logic kata cha re? eg. @show instance show.html.erb ma use huncha not for eg. @post</li>
 <li>@post.category.name garna milcha like no need to match table ny(sql) join table things </li>
 <li>user_id foreign key banaunu parne hola ni pasa ani store garnu paryo</li>

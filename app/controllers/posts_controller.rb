@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     #@posts = Post.all
-    @posts = Post.where(published: false)
+    #specific page ko lagi controller ma ani globally model ma
+    @posts = Post.where(published: false).paginate(page: params[:page], per_page: 5)
   end
 
   # GET /posts/1

@@ -16,13 +16,16 @@
 </p>
 <p>
   <strong>Category:</strong>
-  <%= @post.category.name %>
+  <%= @post.category&.name %>
 </p>
 
 <p>
   <strong>Author from db:</strong>
   <%#= @post.user.fname %>
-  <%= @post.try(:user).try(:fname) %>
+  <%#= @post.user&.fname %>
+  <%#= @post.user&.lname %>
+  <%= "#{@post.user&.fname} #{@post.user&.lname}" %>
+  <%#= @post.user&.lname %>
 
 </p>
 
@@ -39,5 +42,5 @@
     </div>
       <%= image_tag(@post.image) %>
 <% end %>
-<%= link_to 'Edit', edit_post_path(@post), class:"btn btn-secondary btn-sm" %> |
-<%= link_to 'Back', posts_path, class:"btn btn-secondary btn-sm" %>
+<%= link_to 'Edit', edit_post_path(@post), class:"btn btn-default btn-sm" %> |
+<%= link_to 'Back', posts_path, class:"btn btn-default btn-sm" %>

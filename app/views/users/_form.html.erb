@@ -26,6 +26,16 @@
     <%= form.text_field :location, class: "form-control"  %>
   </div>
 
+  <div class="field form-group">
+    <%= form.label :password %>
+    <%= form.password_field :password, :required => true, class: "form-control" %>
+  </div>
+  
+  <div class="field form-group">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, :required => true, class: "form-control" %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

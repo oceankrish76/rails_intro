@@ -102,3 +102,31 @@ h4 {
   cursor:pointer;
   margin:0px;
 }
+.login-logout {
+  padding: 10px;
+}
+.login-logout:hover {
+  background-color: white;
+}
+.create-forms a {
+  background-color: white;
+}
+.pagination {
+  margin-top: 20px;
+}
+.pagination a{
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #007bff;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+.pagination .current {
+  padding: .5rem .75rem;
+  background-color: #007bff;
+  color: white;    
+  border: 1px solid #dee2e6;
+  margin-left: -1px;
+  line-height: 1.25;
+}

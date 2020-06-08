@@ -21,7 +21,7 @@
     <%= form.text_area :content, :required => true, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :published %>
     <%= form.check_box :published, class: "checkbox"%>
   </div>
@@ -32,13 +32,6 @@
       <%= form.select(:category_id, options_for_select(Category.all.collect{|c | [c.name, c.id]}, { include_blank: false, selected: form.object.category_id })) %>
     </div>
   </div>
-
-<div class="control-group">
-    <%= form.label "Author from users", class:"control-label" %>
-    <div class="controls">
-      <%= form.select(:user_id, options_for_select(User.all.collect{|c | [c.fname, c.lname, c.id]}, { include_blank: false, selected: form.object.user_id })) %>
-    </div>
-  </div> 
 
   <div class="control-group">
     <%= form.label "Tags hit cmd to select multiple", class:"control-label" %>
@@ -51,7 +44,7 @@
     </div>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :Image %>
     <%= form.file_field :image %>
   </div>

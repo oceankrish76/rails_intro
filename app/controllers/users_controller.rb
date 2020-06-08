@@ -8,7 +8,8 @@ class UsersController < ApplicationController
     #http://localhost:3000/users/6 son cha created chai vo but display limit to 5
     #yo ruby ma vo, rails bata pani limit garna milcha
     #@users[0,5].each do
-    @users = User.limit(5)
+    #@users = User.limit(5)
+    @users = User.all.order(:id).last(5)
   end
 
   # GET /users/1

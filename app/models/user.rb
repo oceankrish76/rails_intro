@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   validates :fname, :lname, presence: true
   has_many :posts
+  has_many :comments
   #belongs_to :post
 end

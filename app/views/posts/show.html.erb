@@ -1,5 +1,6 @@
   
 
+<div class="create-forms">
 
 <p id="notice"><%= notice %></p>
 
@@ -42,22 +43,24 @@
   <%= @post.created_at %>
 </p>
 <% unless(@post.image.blank?) %>
-    <strong>Image</strong>
-    </div>
-      <%= image_tag(@post.image) %>
+    <span><strong>Image</strong></span><br />
+      <%= image_tag(@post.image, class:"post-image") %>
 <% end %>
 
 <hr />
 <h2>Comments</h2>
 <% @post.comments.each do |comment| %>
   <%= comment.description %>
+  <%= comment.user.fname %>
 <% end %>
-
+<br />
+<b>Commented by:  <%= "#{@comment.user&.fname} #{@comment.user&.lname}" %> </b>
 <%# dsde %>
 <%= form_with(model: @comment, as: :post, url: post_comments_path(post_id: @post.id)) do |form| %>
   <div class="field form-group">
     <%= form.label :description %>
     <%= form.text_area :description, :required => true, class: "form-control" %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
   
   <div class="control-group">
@@ -74,3 +77,4 @@
 
 <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-default btn-sm" %> |
 <%= link_to 'Back', posts_path, class:"btn btn-default btn-sm" %>
+</div>

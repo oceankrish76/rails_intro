@@ -1,6 +1,7 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<p id="notice"><%= notice %></p>
+<div class="bg-light">
+<h1 class="top-title">Posts</h1>
 
 <table>
   <thead>
@@ -10,28 +11,32 @@
       <th>Content</th>
       <th>Published</th>
       <th>Category</th>
-      <th colspan="5"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="text-secondary">
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
-        <td><%= post.author %></td>
+        <td><%= post.user&.fname %></td>
         <td><%= post.content %></td>
         <td><%= post.published %></td>
         <td><%= post.category&.name %></td>
-        <%# & displays name for only availabke categories %>
-        <%# <td><%= image_tag(@post.image) %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', post, class: "btn btn-info" %></td>
+        <td><%= link_to 'Edit', edit_post_path(post), class: "btn btn-warning" %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
-  </tbody>
+  </tbody class="text-secondary">
 </table>
-
+<div class="pagination">
+<%= will_paginate @postss, class: 'text-center table ul_class' %>
+</div>
 <br>
-
-<%= link_to 'New Post', new_post_path %>
+  <div class="row-fluid">
+  <div class="span12 text-center">
+      <%= link_to 'New Post', new_post_path, class:"text-justify top-title btn btn-primary mb-2 text-light"%>
+  </div>
+  </div>
+</div>

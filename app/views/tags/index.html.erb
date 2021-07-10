@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<div class="create-forms">
+<h1 class="top-title">Tags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody class="text-secondary">
+    <% @tags.each do |tag| %>
+      <tr>
+        <td><%= tag.name %></td>
+        <td><%= link_to 'Show', tag, class: "btn btn-info" %></td>
+        <td><%= link_to 'Edit', edit_tag_path(tag), class: "btn btn-warning" %></td>
+        <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody class="text-secondary">
+</table>
+
+<br>
+
+<div class="row-fluid">
+  <div class="span12 text-center">
+    <%= link_to 'New Tag', new_tag_path %>
+  </div>
+</div>
+</div>

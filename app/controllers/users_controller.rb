@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /users
   # GET /users.json
   def index
@@ -8,7 +8,8 @@ class UsersController < ApplicationController
     #http://localhost:3000/users/6 son cha created chai vo but display limit to 5
     #yo ruby ma vo, rails bata pani limit garna milcha
     #@users[0,5].each do
-    @users = User.limit(5)
+    #@users = User.limit(5)
+    @users = User.all.order(:id).last(5)
   end
 
   # GET /users/1
@@ -32,6 +33,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        session[:user_id] = user.id
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -73,6 +75,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:fname, :lname, :location, :created_at)
+      params.require(:user).permit(:fname, :lname, :location, :created_at, :id, :password, :password_confirmation, :email)
     end
 end

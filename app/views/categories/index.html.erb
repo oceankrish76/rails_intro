@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Categories</h1>
+<div class="center-div">
+<h1 class="top-title">Categories</h1>
 
 <table>
   <thead>
@@ -10,18 +10,24 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="text-secondary">
+  <%# remember we have created @category instance before and use now here %>
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.name %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', category, class: "btn btn-info" %></td>
+        <td><%= link_to 'Edit', edit_category_path(category), class: "btn btn-warning" %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
-  </tbody>
+  </tbody class="text-secondary">
 </table>
 
 <br>
+<div class="row-fluid">
+  <div class="span12 text-center">
+<%= link_to 'New Category', new_category_path, class:"text-justify top-title btn btn-primary mb-2 text-light" %>
 
-<%= link_to 'New Category', new_category_path %>
+</div>
+</div>
+</div>

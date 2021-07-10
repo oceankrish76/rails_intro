@@ -1,13 +1,11 @@
+  
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Title:</strong>
   <%= @post.title %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @post.author %>
 </p>
 
 <p>
@@ -20,14 +18,59 @@
   <%= @post.published %>
 </p>
 <p>
+  <strong>Category:</strong>
+  <%= @post.category&.name %>
+</p>
+
+<p>
+  <strong>Author from db:</strong>
+  <%#= @post.user.fname %>
+  <%#= @post.user&.fname %>
+  <%#= @post.user&.lname %>
+  <%#= "#{@post.user&.fname} #{@post.user&.lname}" %>
+  <%= "#{@post.user&.fname} #{@post.user&.lname}" %>
+  <%#= @post.user&.lname %>
+
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @post.tags.collect{|c| c.name}.join(', ') %>
+</p>
+<p>
   <strong>Created at:</strong>
   <%= @post.created_at %>
 </p>
 <% unless(@post.image.blank?) %>
-  <p>
     <strong>Image</strong>
-    <%= image_tag(@post.image) %>
-  </p>
+    </div>
+      <%= image_tag(@post.image) %>
 <% end %>
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+
+<hr />
+<h2>Comments</h2>
+<% @post.comments.each do |comment| %>
+  <%= comment.description %>
+<% end %>
+
+<%# dsde %>
+<%= form_with(model: @comment, as: :post, url: post_comments_path(post_id: @post.id)) do |form| %>
+  <div class="field form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, :required => true, class: "form-control" %>
+  </div>
+  
+  <div class="control-group">
+    <%= form.label "Comment as:", class:"control-label" %>
+    <div class="controls">
+      <%= form.select(:user_id, options_for_select(User.all.collect{|c | [c.fname, c.lname, c.id]}, { include_blank: false, selected: form.object.user_id })) %>
+    </div>
+  </div> 
+
+  <div class="actions form-group">
+    <%= form.submit class:"btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to 'Edit', edit_post_path(@post), class:"btn btn-default btn-sm" %> |
+<%= link_to 'Back', posts_path, class:"btn btn-default btn-sm" %>

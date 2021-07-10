@@ -11,19 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :fname %>
-    <%= form.text_field :fname %>
+    <%= form.text_field :fname, :required => true, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :lname %>
-    <%= form.text_field :lname %>
+    <%= form.text_field :lname, :required => true, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :location %>
-    <%= form.text_field :location %>
+    <%= form.text_field :location, class: "form-control"  %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :password %>
+    <%= form.password_field :password, :required => true, class: "form-control" %>
+  </div>
+  
+  <div class="field form-group">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, :required => true, class: "form-control" %>
   </div>
 
   <div class="actions">

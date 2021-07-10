@@ -1,21 +1,24 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /posts
   # GET /posts.json
   def index
     #@posts = Post.all
-    @posts = Post.where(published: false)
+    #specific page ko lagi controller ma ani globally model ma
+    @posts = Post.where(published: false).paginate(page: params[:page], per_page: 5)
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @comment = Comment.new
   end
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = current_user.posts.new
   end
 
   # GET /posts/1/edit
@@ -26,6 +29,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
 
     respond_to do |format|
       if @post.save
@@ -70,6 +74,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :author, :content, :published, :category_id, :image, )
+      params.require(:post).permit(:title, :content, :published, :category_id, :user_id, :id, :image, :fname, :lname, tag_ids: [])
     end
 end
